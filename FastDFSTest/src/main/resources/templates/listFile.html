@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table style="width: 800px; text-align: center; margin: auto">
+      <tr>
+        <td>主键</td>
+        <td>原始文件名</td>
+        <td>卷名</td>
+<!--        <td>新文件名</td>-->
+<!--        <td>上传时间</td>-->
+        <td>操作</td>
+      </tr>
+      <tr th:each="f : ${list}">
+        <td th:text="${f.id}"></td>
+        <td th:text="${f.fileName}"></td>
+        <td th:text="${f.groupName}"></td>
+<!--        <td th:text="${f.newFileName}"></td>-->
+<!--        <td th:text="${f.createTime}"></td>-->
+        <td>
+          <a target="_blank" th:href="@{/download(id=${f.id})}">下载</a>
+          <a th:href="@{/deleteFile(id=${f.id})}">删除</a>
+        </td>
+      </tr>
+    </table>
+
+</body>
+</html>
